@@ -1,5 +1,6 @@
 package com.projects.EcommerceBackend.Controllers;
 
+import com.projects.EcommerceBackend.CustomExceptions.ApiException;
 import com.projects.EcommerceBackend.DTOs.ProductDTO;
 import com.projects.EcommerceBackend.Services.ProductService;
 import org.springframework.web.bind.annotation.*;
@@ -18,28 +19,28 @@ public class ProductController {
     }
 
     @GetMapping
-    public List<ProductDTO> getALlProducts() {
+    public List<ProductDTO> getALlProducts() throws ApiException {
         return productService.getAllProducts();
     }
 
     @PostMapping
-    public ProductDTO addProduct(@RequestBody ProductDTO productDTO) {
+    public ProductDTO addProduct(@RequestBody ProductDTO productDTO) throws ApiException {
         return productService.addProduct(productDTO);
     }
 
     @GetMapping("/{id}")
-    public ProductDTO getProductById(@PathVariable Integer id)
+    public ProductDTO getProductById(@PathVariable Integer id) throws ApiException
     {
         return productService.getProductById(id);
     }
 
     @PutMapping("/{id}")
-    public ProductDTO updateProduct(@PathVariable Integer id, @RequestBody ProductDTO productDTO) {
+    public ProductDTO updateProduct(@PathVariable Integer id, @RequestBody ProductDTO productDTO) throws ApiException {
         return productService.updateProduct(id, productDTO);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteProduct(@PathVariable Integer id) {
+    public void deleteProduct(@PathVariable Integer id) throws ApiException {
         productService.deleteProduct(id);
     }
 

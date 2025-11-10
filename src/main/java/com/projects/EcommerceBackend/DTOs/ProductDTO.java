@@ -20,12 +20,4 @@ public class ProductDTO {
     private String image;
     private Rating rating;
 
-    @Setter
-    @Getter
-    public static class Rating {
-        private double rate;
-        private int count;
-
-    }
-
 }
