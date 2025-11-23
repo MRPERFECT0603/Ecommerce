@@ -2,7 +2,7 @@ spring:
   application:
     name: EcommerceBackend
   datasource:
-    url: jdbc:mysql://localhost:3306/mydb
+    url: jdbc:${MYSQL_DATABASE_URL}
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
